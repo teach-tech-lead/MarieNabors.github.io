@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Psychic Game!</title>
+  </head>
+  <body>
+
+    <h1>Are you PSYCHIC?</h1>
+        <h2>
+             Can you guess what letter I'm thinking? 
+        </h2>
+        <h3> Press a key to play.</h3>
+        <div>
+          <p> 
+            Wins = 
+          <br>
+            Losses =
+          </p>
+        </div>
+<script>
+
+   var computerChoices = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+
+   var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+   
+   var wins = 0
+   var losses = 0
+
+
+    document.onkeyup = function(event) {
+
+      // Determines which key was pressed.
+      var userGuess = event.key.toLowerCase();
+
+      if (computerGuess == userGuess){
+        wins++;
+        alert("You won!");
+        computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length )];
+
+      } else {
+        losses++;
+        alert ("Try again!")
+      }
+
+      // Randomly chooses a choice from the options array. This is the Computer's guess.
+    }
+
+
+</script>
+
+</body>
