@@ -1,11 +1,98 @@
 <!DOCTYPE html>
-<title> Marie Nabors </title>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <title>Psychic Game!</title>
+</head>
 <body>
-	<h1>MEET MARIE.</h1>
-	<img src="https://i.pinimg.com/avatars/marienabors-1417152759_280.jpg">
-	<p>
-		Marie is learning to create a webpage.
-	</p>
-	<a href="https://www.linkedin.com/in/marie-m-nabors-wonderwoman/" Target=_blank> "View her LinkedIn Profile Here"</a>
+
+<h1>Are you PSYCHIC?</h1>
+<h2>Can you guess what letter I'm thinking?</h2>
+<h3>Press a key to play.</h3>
+<div>
+
+  <p id="win">Wins = 0</p>
+  <p id="lost">Losses = 0</p>
+  <p id="left">Guesses Left = 9</p>
+  <p id="made">Guesses So Far = </p>
+
+</div>
+
+
+<script>
+
+// An array of letters of the alphabet that will be used to allow the computer to pick a letter
+var computerChoices = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+
+// A random index by using the Math random function (is a random number between 0.0 - 1.0) and multiplied by the count of the array                   
+var randomIndex = Math.floor(Math.random() * computerChoices.length);                 
+
+// A letter randomly selected from the computerChoices array using the index above
+var computerGuess = computerChoices[randomIndex];
+
+var wins = 0;
+var losses = 0;
+
+// array to hold guessed letters
+var guessesMade = [];
+
+document.onkeyup = function(event) {
+
+  // The letter captured from the key press                                                                                                      
+  var userGuess = event.key.toLowerCase(); 
+       
+  // check if the letter is the computer guess
+  if (computerGuess == userGuess) {
+
+    // increase the win count
+    wins++;
+
+    // reset guessesMade
+    guessesMade = [];
+
+    // Computer guesses new letter
+    computerGuess = computerChoices[ Math.floor(Math.random() * computerChoices.length) ];
+
+  } else {
+
+    // add letter to guessesMade
+    guessesMade.push(userGuess);
+
+    var guessesLeft = 9 - guessesMade.length;
+
+    var guessesLeftElement = document.getElementById("left");
+    guessesLeftElement.textContent = "Guesses Left = " + guessesLeft;
+
+    if (guessesLeft == 0) {
+
+      // increase the lost count
+      losses++;
+
+      // reset guessesMade
+      guessesMade = [];
+
+      // Computer guesses new letter
+      computerGuess = computerChoices[ Math.floor(Math.random() * computerChoices.length) ];
+
+      guessesLeftElement.textContent = "Guesses Left = 9";
+
+    }
+
+  }
+
+  // update page content
+
+  var winElement = document.getElementById("win");
+  winElement.textContent = "Wins = " + wins;
+
+  var lostElement = document.getElementById("lost");
+  lostElement.textContent = "Losses = " + losses;
+
+  var guessesMadeElement = document.getElementById("made");
+  guessesMadeElement.textContent = "Guesses So Far = " + guessesMade;
+
+}
+
+</script>
 
 </body>
