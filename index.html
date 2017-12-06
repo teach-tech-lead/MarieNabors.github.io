@@ -1,98 +1,61 @@
+
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Psychic Game!</title>
+	<meta charset="UTF-8">
+	<title>The Gem Collection</title>
+	<link rel="stylesheet" type="text/css" href="./assets/CSS/crystalreset.css">
+	<link rel="stylesheet" type="text/css" href="./assets/CSS/style.css">
 </head>
 <body>
-
-<h1>Are you PSYCHIC?</h1>
-<h2>Can you guess what letter I'm thinking?</h2>
-<h3>Press a key to play.</h3>
-<div>
-
-  <p id="win">Wins = 0</p>
-  <p id="lost">Losses = 0</p>
-  <p id="left">Guesses Left = 9</p>
-  <p id="made">Guesses So Far = </p>
-
-</div>
-
-
-<script>
-
-// An array of letters of the alphabet that will be used to allow the computer to pick a letter
-var computerChoices = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-
-// A random index by using the Math random function (is a random number between 0.0 - 1.0) and multiplied by the count of the array                   
-var randomIndex = Math.floor(Math.random() * computerChoices.length);                 
-
-// A letter randomly selected from the computerChoices array using the index above
-var computerGuess = computerChoices[randomIndex];
-
-var wins = 0;
-var losses = 0;
-
-// array to hold guessed letters
-var guessesMade = [];
-
-document.onkeyup = function(event) {
-
-  // The letter captured from the key press                                                                                                      
-  var userGuess = event.key.toLowerCase(); 
-       
-  // check if the letter is the computer guess
-  if (computerGuess == userGuess) {
-
-    // increase the win count
-    wins++;
-
-    // reset guessesMade
-    guessesMade = [];
-
-    // Computer guesses new letter
-    computerGuess = computerChoices[ Math.floor(Math.random() * computerChoices.length) ];
-
-  } else {
-
-    // add letter to guessesMade
-    guessesMade.push(userGuess);
-
-    var guessesLeft = 9 - guessesMade.length;
-
-    var guessesLeftElement = document.getElementById("left");
-    guessesLeftElement.textContent = "Guesses Left = " + guessesLeft;
-
-    if (guessesLeft == 0) {
-
-      // increase the lost count
-      losses++;
-
-      // reset guessesMade
-      guessesMade = [];
-
-      // Computer guesses new letter
-      computerGuess = computerChoices[ Math.floor(Math.random() * computerChoices.length) ];
-
-      guessesLeftElement.textContent = "Guesses Left = 9";
-
-    }
-
-  }
-
-  // update page content
-
-  var winElement = document.getElementById("win");
-  winElement.textContent = "Wins = " + wins;
-
-  var lostElement = document.getElementById("lost");
-  lostElement.textContent = "Losses = " + losses;
-
-  var guessesMadeElement = document.getElementById("made");
-  guessesMadeElement.textContent = "Guesses So Far = " + guessesMade;
-
-}
-
-</script>
-
+	<div class="header">
+		<h1>The Gem Collection</h1>
+	</div>
+	<div class="instructions">
+		<h3>To play...</h3>
+		</br>
+		<ul>
+			<li>1. First, notice the goal number given.<span>"Goal Number"</span></li>
+			<li>2. Notice the 4 lovely crystals.</li>
+			<ul>
+				<li id="blue">Blue</li>
+				<li id="green">Green</li>
+				<li id="red">Red</li>
+				<li id="yellow">Yellow</li>
+			</ul>
+			<li>3. Clicking on any of the gems to add a secret number to your score.</li>
+			<li>4. To win, match your number to the goal number.</li>
+			<li>5. You'll lose if your total exceeds the goal number.</li>
+			<li>6. Each gem's value remains a secret until you click on it.</li>
+			<li>7. When the game restarts, the gems' values reset.</li>
+		</ul>
+	</div>
+	<div class="numberToMatch">
+		<h2>Goal Number:
+			<span id= "randomNumber"></span>
+		</h2>
+	</div>
+	<div class="winsAndLosses">
+		<h2>Wins:
+			<span id= "numberWins"></span>
+			</br>
+			Losses: 
+			<span id= "numberLosses"></span>
+		</h2>
+	</div>
+	<div class="gems">
+		<img src="./assets/Images/blue.png" class=gemImage id="one" alt="Blue Gem">
+		<img src="./assets/Images/green.png" class=gemImage id="two" alt="Green Gem">
+		<img src="./assets/Images/red.png" class=gemImage id= "three" alt="Red Gem">
+		<img src="./assets/Images/yellow.png" class=gemImage id= "four" alt="Yellow Gem">
+	</div>
+	<div class="userTotal">
+		<h2>Your total score is:
+			<span id="finalTotal"></span>
+		</h2>
+	</div>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+	<script type="text/javascript" src="./assets/Javascript/crystalgame.js"></script>
 </body>
+</html>
