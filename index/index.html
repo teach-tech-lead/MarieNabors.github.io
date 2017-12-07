@@ -7,12 +7,14 @@
 	<title>The Gem Collection</title>
 	<link rel="stylesheet" type="text/css" href="assets/CSS/resetcrystals.css">
 	<link rel="stylesheet" type="text/css" href="assets/CSS/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
 </head>
 <body>
-	<div class="header">
+	<div id="container">
+	<div class="header center">
 		<h1>The Gem Collection</h1>
 	</div>
-	<div class="instructions">
+	<div class="instructions center">
 		<h3>To play...</h3>
 		</br>
 		<ul>
@@ -31,12 +33,12 @@
 			<li>7. When the game restarts, the gems' values reset.</li>
 		</ul>
 	</div>
-	<div class="numberToMatch">
+	<div class="numberToMatch center">
 		<h2>Goal Number:
 			<span id= "randomNumber"></span>
 		</h2>
 	</div>
-	<div class="winsAndLosses">
+	<div class="winsAndLosses center">
 		<h2>Wins:
 			<span id= "numberWins"></span>
 			</br>
@@ -44,18 +46,20 @@
 			<span id= "numberLosses"></span>
 		</h2>
 	</div>
-	<div class="gems">
+	<div class="gems center">
 		<img src="assets/Images/blue.png" class=gemImage id="one" alt="Blue Gem">
 		<img src="assets/Images/green.png" class=gemImage id="two" alt="Green Gem">
 		<img src="assets/Images/red.png" class=gemImage id= "three" alt="Red Gem">
 		<img src="assets/Images/yellow.png" class=gemImage id= "four" alt="Yellow Gem">
 	</div>
-	<div class="userTotal">
+	<div class="userTotal center">
 		<h2>Your total score is:
 			<span id="finalTotal"></span>
 		</h2>
 	</div>
+</div>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
 	<script type="text/javascript" src="assets/Javascript/crystalgame.js"></script>
+
 </body>
 </html>
