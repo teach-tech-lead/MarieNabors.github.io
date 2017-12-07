@@ -1,5 +1,6 @@
 body{
-	background-image: url("../Images/background.png")
+	background-color: pink;
+	/*background-image: url("../Images/background.png");*/
 }
 div{
 	background-color: white;
