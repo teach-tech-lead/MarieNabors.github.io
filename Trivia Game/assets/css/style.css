@@ -1,0 +1,38 @@
+
+
+body {
+	padding:30px;
+
+	background-color: green;
+}
+.jumbotron {
+	margin-top:30px;
+	text-align: center;
+	font-family: 'Vollkorn SC', serif;
+}
+button.answerchoices {
+	width: 30%;
+	height: 55px;
+	margin: 0 10%;
+	float: left;
+	background-color: red;
+	font-family: 'Vollkorn SC', serif;
+	font-size: 24px;
+
+}
+button.answerchoices: hover {
+	background-color: white;
+
+}
+element.style {
+    margin-top: 30px;
+}
+
+ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+li {
+    margin-left: 1em;
+}
